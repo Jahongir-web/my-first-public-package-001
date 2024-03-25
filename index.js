@@ -1,11 +1,13 @@
-const reverseStr = (str) => {
-  let result = "";
-  for (const letter of str) {
-    result = letter + result
-  }
+const axios = require("axios");
 
-  return result
+const fakeData = async () => {
+  try {
+    let res = await axios.get("https://jsonplaceholder.typicode.com/users")
+
+    return res;
+  } catch (error) {
+    console.log(error);
+  }  
 }
 
-
-module.exports = reverseStr;
+module.exports = fakeData;
